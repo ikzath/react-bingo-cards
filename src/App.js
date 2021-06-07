@@ -10,10 +10,8 @@ class App extends Component {
     this.state = {
       board: boardData,
       winner: false,
-      onclick: false,
       indexes: [],
-      winningCombinationsMatrix: winningCombinations,
-      modal: false
+      winningCombinationsMatrix: winningCombinations
     };
   }
 
@@ -26,7 +24,7 @@ class App extends Component {
       }),
       function () {
         this.squareClicked();
-      });
+      },);
   };
 
   squareClicked() {
@@ -45,7 +43,7 @@ class App extends Component {
       ) {
         this.setState({
           winner: true,
-          indexes: line,
+          indexes: line          
         });
       }
     })}    
