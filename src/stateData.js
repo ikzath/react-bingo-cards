@@ -11,7 +11,7 @@ export const boardData = [
     { id: 9, name: "useMemo", active: false, clicked: false},
     { id: 10, name: "arrow functions",active: false, clicked: false},
     { id: 11, name: "const", active: false, clicked: false},
-    { id: 12, name: "I'M TAKEN", active: true, clicked: true},
+    { id: 12, name: '\uD83D\uDE00', active: true, clicked: true},
     { id: 13, name: "classes",    active: false, clicked: false},
     { id: 14, name: "context-ApI", active: false, clicked: false},
     { id: 15, name: "Jest",active: false, clicked: false},

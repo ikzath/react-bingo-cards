@@ -48,10 +48,35 @@ class App extends Component {
       }
     })}    
 
+    componentDidMount() {      
+            
+      function shuffleArray(array) {
+        let i = array.length - 1;
+        for (; i > 0; i--) {
+          // if(array.clicked !== true){
+          let j = Math.floor(Math.random() * (i + 1));
+          // if(j !== 12){
+          let temp = array[i];
+          array[i] = array[j];
+          array[j] = temp;
+        }
+          array.splice(12, 0, array.id === 13)
+          return array;
+      }
+    // }}
+    
+    const shuffledPosts = shuffleArray(this.state.board)
+    console.log(shuffledPosts)
+      
+      this.setState({
+        board: shuffledPosts
+      });
+    }
+
 // update winning indexes to carry on the game
-  componentDidUpdate() {
-    if (this.state.winner === true) {
-      this.setState((prevState) => ({
+  componentDidUpdate() {      
+    if (this.state.winner === true) {      
+     this.setState((prevState) => ({
         winningCombinationsMatrix: prevState.winningCombinationsMatrix.filter(
           (item) => !item.every((it, i) => it === this.state.indexes[i])
         ),
@@ -96,7 +121,7 @@ class App extends Component {
               style={{ backgroundColor: clicked ? 'yellow' : 'square' }}
               onClick={() => this.onClickHandler(id)} >
               <div className='displayText'>
-                <span>{id + 1 + '.'}</span>
+                <span>{index + 1 + '.'}</span>
                 <span >{name}</span>
               </div>
             </div>
