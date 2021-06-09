@@ -53,18 +53,21 @@ class App extends Component {
       function shuffleArray(array) {
         let i = array.length - 1;
         for (; i > 0; i--) {
-          // if(array.clicked !== true){
+          if(array.clicked !== true){
           let j = Math.floor(Math.random() * (i + 1));
-          // if(j !== 12){
+          if(j !== 12){
           let temp = array[i];
           array[i] = array[j];
           array[j] = temp;
         }
-          array.splice(12, 0, array.id === 13)
           return array;
-      }
-    // }}
-    
+      }}        
+    }
+          // const clickd = array[i].clicked
+          // if(clickd){
+          //   array.splice(12, 0, clickd)
+          // }
+
     const shuffledPosts = shuffleArray(this.state.board)
     console.log(shuffledPosts)
       
