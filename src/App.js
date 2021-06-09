@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Confetti from 'react-dom-confetti';
 import {boardData, winningCombinations} from './stateData';
-
+import shuffleArray from "./shuffleArray";
 
 class App extends Component {
   constructor(props) {
@@ -48,32 +48,12 @@ class App extends Component {
       }
     })}    
 
-    componentDidMount() {      
-            
-      function shuffleArray(array) {
-        let i = array.length - 1;
-        for (; i > 0; i--) {
-          if(array.clicked !== true){
-          let j = Math.floor(Math.random() * (i + 1));
-          if(j !== 12){
-          let temp = array[i];
-          array[i] = array[j];
-          array[j] = temp;
-        }
-          return array;
-      }}        
-    }
-          // const clickd = array[i].clicked
-          // if(clickd){
-          //   array.splice(12, 0, clickd)
-          // }
-
-    const shuffledPosts = shuffleArray(this.state.board)
-    console.log(shuffledPosts)
-      
-      this.setState({
-        board: shuffledPosts
-      });
+    // shuffle board except for the middle indexed cell everytime the component mounts
+    componentDidMount() {              
+      const shuffledPosts = shuffleArray(this.state.board, 12)      
+        this.setState({
+          board: shuffledPosts
+        }); 
     }
 
 // update winning indexes to carry on the game
